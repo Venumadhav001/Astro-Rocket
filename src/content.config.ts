@@ -2,7 +2,6 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
-// Blog collection with Content Layer API
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: ({ image }) =>
@@ -24,7 +23,6 @@ const blog = defineCollection({
     }),
 });
 
-// Pages collection for static pages
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages' }),
   schema: z.object({
@@ -35,7 +33,6 @@ const pages = defineCollection({
   }),
 });
 
-// Authors collection
 const authors = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/authors' }),
   schema: ({ image }) =>
@@ -53,7 +50,6 @@ const authors = defineCollection({
     }),
 });
 
-// FAQs collection
 const faqs = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/faqs' }),
   schema: z.object({
@@ -65,7 +61,6 @@ const faqs = defineCollection({
   }),
 });
 
-// Projects collection
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
   schema: ({ image }) =>
@@ -87,7 +82,6 @@ const projects = defineCollection({
     }),
 });
 
-// Stack collection
 const stack = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/stack' }),
   schema: z.object({
