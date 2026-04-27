@@ -1,0 +1,22 @@
+---
+title: "Sensitivity Analysis in Vehicle Simulation — Why One Fixed Condition Is Never Enough"
+description: "A simulation model that only works under one fixed condition is not useful for real engineering. Here is how OAT analysis works."
+pubDate: 2025-01-22
+author: "Kalluri Devi Narasimha Venu Madhav"
+tags: ["sensitivity-analysis", "vehicle-simulation", "matlab", "fcev", "powertrain"]
+category: "Technical"
+readingTime: "4 min"
+featured: false
+---
+
+A simulation model that only works under one fixed condition is not useful for real engineering.
+
+The method is called **One-at-a-Time (OAT) analysis** — change one input variable while holding everything else constant, observe how the output responds. Results show which parameters the model is most sensitive to.
+
+**Road Slope** — Steeper grades raise power demand at the wheels. In a fuel cell hybrid, that demand is shared between fuel cell and battery. If energy management logic is not robust, a sustained uphill stretch can deplete the battery faster than expected.
+
+**Temperature** — Affects multiple components simultaneously. Li-ion battery capacity drops at low temperatures. PEM fuel cell membrane conductivity is temperature-dependent. Cold start requires additional energy.
+
+These two parameters are standard inclusions in any thorough vehicle simulation study.
+
+*Kalluri Devi Narasimha Venu Madhav — M.Sc. Hydrogen Technology, TH Rosenheim*
