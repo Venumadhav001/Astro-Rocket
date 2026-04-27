@@ -8,7 +8,8 @@ const blog = defineCollection({
     z.object({
       title: z.string().max(100),
       description: z.string().max(200),
-      pubDate: z.coerce.date(),
+      pubDate: z.coerce.date().optional(),
+      publishedAt: z.coerce.date().optional(),
       updatedAt: z.coerce.date().optional(),
       author: z.string().default('Kalluri Devi Narasimha Venu Madhav'),
       image: image().optional(),
