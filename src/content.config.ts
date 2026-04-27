@@ -9,9 +9,9 @@ const blog = defineCollection({
     z.object({
       title: z.string().max(100),
       description: z.string().max(200),
-      publishedAt: z.coerce.date(),
+      pubDate: z.coerce.date(),
       updatedAt: z.coerce.date().optional(),
-      author: z.string().default('Team'),
+      author: z.string().default('Kalluri Devi Narasimha Venu Madhav'),
       image: image().optional(),
       imageAlt: z.string().optional(),
       tags: z.array(z.string()).default([]),
@@ -19,6 +19,8 @@ const blog = defineCollection({
       draft: z.boolean().default(false),
       featured: z.boolean().default(false),
       locale: z.enum(['en', 'es', 'fr']).default('en'),
+      category: z.string().optional(),
+      readingTime: z.string().optional(),
     }),
 });
 
@@ -51,7 +53,7 @@ const authors = defineCollection({
     }),
 });
 
-// FAQs collection (for JSON-LD FAQ schema)
+// FAQs collection
 const faqs = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/faqs' }),
   schema: z.object({
@@ -63,7 +65,7 @@ const faqs = defineCollection({
   }),
 });
 
-// Projects collection — one MDX file per project
+// Projects collection
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
   schema: ({ image }) =>
@@ -85,7 +87,7 @@ const projects = defineCollection({
     }),
 });
 
-// Stack collection — one MDX file per tool, editable like blog posts
+// Stack collection
 const stack = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/stack' }),
   schema: z.object({
@@ -93,8 +95,8 @@ const stack = defineCollection({
     description: z.string(),
     version: z.string(),
     url: z.string().url(),
-    icon: z.string(), // icon name, e.g. 'brand-astro'
-    colorOklch: z.string(), // OKLCH params, e.g. '62.5% 0.22 38'
+    icon: z.string(),
+    colorOklch: z.string(),
     order: z.number().default(0),
   }),
 });
